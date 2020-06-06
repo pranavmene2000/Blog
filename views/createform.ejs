@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <%- include ('./partials/navbar') %>
+  <h1 class="text-center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;padding-top: 20px;">Create New Blog</h1>
+    <form action="/new" method="POST"  class="container">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Name"
+            name="name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            placeholder="Title"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Body</label>
+          <input
+            type="text"
+            class="form-control"
+            id="body"
+            name="body"
+            placeholder="Body"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Date of Submission</label>
+          <input
+            type="date"
+            class="form-control"
+            id="date"
+            name="date"
+            placeholder="Date"
+          />
+        </div>
+        <!-- <div class="form-group">
+          <label for="exampleFormControlFile1">Upload Cover Image</label> <%= typeof msg != 'undefined' ? msg : '' %>
+          <input type="file" name="myImage" class="form-control-file" id="uploadFile">
+        </div> -->
+        <a type="submit" href="/" class="btn btn-primary">Back</a>
+        <button type="submit" class="btn btn-danger">Submit</button>
+      </form>
+      
+</body>
+</html>

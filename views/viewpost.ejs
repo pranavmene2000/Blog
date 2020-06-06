@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        @media screen and (max-width: 574px) {
+        .jumbotron .container {
+          padding: 35px 10px 35px 10px !important;
+        }
+      }
+    </style>
+</head>
+
+<body>
+    <%- include ('./partials/navbar') %>
+    <main class="text-center" style="margin: 20px 0 0 0;">
+        <div class="jumbotron">
+            <div class="container" style="margin: -35px 0 -35px 0 !important;">
+                <h1 class="display-6"><%=data.title%></h1>
+                <p class="lead"><%=data.name%></p>
+                <h5 class="display-6 text-left" style="font-family: 'Roboto', arial, sans-serif;">
+                    <%=data.body%>
+                </h5>
+                <p class="lead text-left"><%=data.date.toDateString()%></p>
+                <div class="button text-white text-left">
+                    <a class="btn btn-info" href="/">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

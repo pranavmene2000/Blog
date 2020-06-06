@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+
+  <!-- Title bar Icon -->
+  <link rel="icon"
+    href="https://cdn0.iconfinder.com/data/icons/social-networks-and-media-flat-icons/136/Social_Media_Socialmedia_network_share_socialnetwork_network-22-512.png"
+    type="image/x-icon" />
+  <style>
+    nav {
+      font-style: italic !important;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @media screen and (max-width: 574px) {
+      .jumbotron .container-fluid {
+        padding: 35px 10px 35px 10px !important;
+      }
+
+      .mobilesize {
+        font-size: 21px;
+        margin-left: 15px;
+      }
+    }
+
+    .jumbotron {
+      /* isolation: isolate; */
+      border-left: 20px solid black;
+    }
+
+    .darkmode-toggle {
+      z-index: 10;
+      outline: none;
+    }
+    .darkmode-toggle:onfocus{
+      outline: none;
+    }
+
+    .darkmode--activated .jumbotron {
+      /* background-color: rgb(38, 39, 38); */
+      border-style: solid;
+      border-width: 3px;
+      border-image: linear-gradient(to bottom,
+          red,
+          rgba(0, 0, 0, 0)) 1;
+
+    }
+    .darkmode--activated #arrow{
+      background-color: aliceblue;
+      color: black;
+    }
+
+    .darkmode--activated #arrow:hover i{
+      color: black;
+    }
+
+    #arrow {
+      position: fixed;
+      bottom: 100px;
+      right: 32px;
+      background-color: black;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      transform: translateY(0px);
+      transition: transform 1s linear;
+    }
+
+    #arrow:hover i {
+      transform: translateY(-10px);
+      overflow: hidden;
+      color: white;
+      transition: transform 0.2s ease-in-out;
+    }
+  </style>
+  <title>PersonalBlog</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <%- body %>
+
+    <a href="" id="arrow" onclick="scrollTop()"><i class="fas fa-angle-double-up"></i></a>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/9de3f045ba.js" crossorigin="anonymous"></script>
+
+  <!-- Dark-Mode -->
+  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>
+  <script>
+    var options = {
+      bottom: "32px", // default: '32px'
+      right: "32px", // default: '32px'
+      time: "0.5s", // default: '0.3s'
+      mixColor: "#fff", // default: '#fff'
+      backgroundColor: "#fff", // default: '#fff'
+      buttonColorDark: "#100f2c", // default: '#100f2c'
+      buttonColorLight: "#fff", // default: '#fff'
+      saveInCookies: true, // default: true,
+      label: "🌓", // default: ''
+      autoMatchOsTheme: true, // default: true
+    };
+    const darkmode = new Darkmode(options);
+    darkmode.showWidget();
+
+    var arrowTop = document.getElementById("arrow");
+    window.onscroll = function(){
+      displayOnScroll()
+    }
+    // console.log(window.innerWidth + " * " + window.innerHeight)
+    function displayOnScroll() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        arrowTop.style.display = "flex";
+      } else {
+        arrowTop.style.display = "none";
+      }
+    }
+    function scrollTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0
+    }
+  </script>
+</body>
+
+</html>

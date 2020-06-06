@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    @media screen and (max-width: 400px) {
+        .button i.fa{
+          display: none;
+        }
+    }
+  </style>
+</head>
+
+<body>
+  <%- include ('./partials/navbar') %>
+
+  <div class="alert alert-dismissible alert-info text-center" style="margin-top: 15px;">
+    <h3 class="mobilesize">
+      <strong>
+        Welcome
+        <span style="color: rgb(109, 31, 31);"><%=user.name%> 🙏</span></strong>
+    </h3>
+  </div>
+  
+  <% if(error != '') { %>
+    <h4 style="text-align: center;padding: 10px 0 0 20px;"><%= error %></h4>
+  <% } %>
+
+  <main style="margin: 20px 0 0 0;" class="">
+    <% Data.map((data) => { %>
+    <div class="jumbotron">
+      <div class="container-fluid" style="margin: -35px 0 -35px 0 !important;">
+        <h1 class="display-6" style="
+              font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+                sans-serif;
+            ">
+          <%=data.title%>
+        </h1>
+        <p class="lead"><%=data.name%></p>
+        <!-- <img class="card-img-top" src="<%= typeof file != 'undefined' ? file : '' %>" style="padding: 0 0 10px 0;width: 50%;height: 400px;" alt="Card image cap"> -->
+        <h5 class="display-6" style="font-family: 'Roboto', arial, sans-serif;">
+          <%=data.body.substring(0,120)%>.....
+        </h5>
+        <p class="lead"><%=data.date.toDateString()%></p>
+        <div class="button text-white ">
+          <a class="btn btn-primary btn-special" href="/view/<%=data._id%>"><i class="fa fa-eye"
+              style="color: white; padding: 0 4px 0 0;"></i>
+            View Blog</a>
+          <a class="btn btn-success btn-special" href="/edit/<%=data._id%>"><i class="fa fa-pencil-square-o"
+              style="color: white; padding: 0 4px 0 0;"></i>
+            Edit</a>
+          <a class="btn btn-danger btn-special" style="
+                background-color: rgb(240, 86, 29);
+                outline: none;
+                border: none;
+              " href="/delete/<%=data._id%>"><i class="fa fa-trash-o" style="color: white; padding: 0 4px 0 0;"></i>
+            Delete</a>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </main>
+  <!-- footer -->
+  <%- include ('./partials/footer') %>
+  <!-- <script>
+      // media-queries
+      function Queries(x) {
+        var btn = document.getElementsByClassName("btn-special");
+        if (x.matches) {
+          btn.style.display = "block"
+        } else {
+          btn.style.display = "flex"
+        }
+      }
+      var x = window.matchMedia("(max-width: 574px)");
+      Queries(x);
+      x.addListener(Queries);
+    </script> -->
+</body>
+
+</html>

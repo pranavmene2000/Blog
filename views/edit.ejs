@@ -1,0 +1,48 @@
+<%- include ('./partials/navbar') %>
+<h1 class="text-center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;padding-top: 20px;">
+  Edit Post
+</h1>
+<form action="/edit/<%=post.id%>" method="POST" class="container">
+  <div class="form-group">
+    <label for="exampleInputPassword1">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      placeholder="Name"
+      name="name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      name="title"
+      placeholder="Title"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Body</label>
+    <input
+      type="text"
+      class="form-control"
+      id="body"
+      name="body"
+      placeholder="Body"
+    />
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Date of Submission</label>
+    <input
+      type="date"
+      class="form-control"
+      id="date"
+      name="date"
+      placeholder="Date"
+    />
+  </div>
+  <a type="submit" href="/" class="btn btn-primary text-white">Cancel</a>
+  <button type="submit" class="btn btn-danger">Save</button>
+</form>
