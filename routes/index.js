@@ -17,15 +17,14 @@ router.get('/', ensureAuthenticated, async (req, res) => {
     try {
         const getdata = await sam.find({}).sort('-date');
         // res.json(getdata)
-        if(getdata.length == 0){
+        if (getdata.length == 0) {
             console.log('No Data Found In DB !');
-            res.render('index', {Data: getdata ,user : req.user, error : 'No blog found !'});
+            res.render('index', { Data: getdata, user: req.user, error: 'No blog found !' });
         }
-        else
-        {
-            res.render('index', { Data: getdata ,user : req.user});
+        else {
+            res.render('index', { Data: getdata, user: req.user });
         }
-        
+
     } catch (err) {
         res.json({ message: err });
     }
@@ -67,7 +66,7 @@ router.post('/new', async (req, res) => {
 
 })
 
-router.get('/view/:para',ensureAuthenticated, async (req, res) => {
+router.get('/view/:para', ensureAuthenticated, async (req, res) => {
     try {
         const PA = await sam.findById(req.params.para);
         res.render('viewpost', { data: PA })
@@ -107,14 +106,14 @@ router.get('/edit/:id', async (req, res) => {
 
 router.post('/edit/:id', async (req, res) => {
 
-    const mydata = {
-        title: req.body.title,
-        body: req.body.body,
-        date: req.body.date,
-        name: req.body.name
-    }
+    // const mydata = {
+    //     title: req.body.title,
+    //     body: req.body.body,
+    //     date: req.body.date,
+    //     name: req.body.name
+    // }
 
-    await sam.findByIdAndUpdate(req.params.id, mydata, function (err, result) {
+    await sam.update({ _id: req.params.id }, { $set: { body: req.body.body, date: req.body.date } }, function (err, result) {
         if (err) {
             console.log({ Error: err });
             res.render('edit')
@@ -129,34 +128,34 @@ router.post('/edit/:id', async (req, res) => {
 
 ////////////////////    ******_TIMEPASS_******   Authentication Details /////////////////////
 
-router.get('/search',async (req,res) => {
+router.get('/search', async (req, res) => {
     await user.find({}).sort('-date')
         .then((user) => {
-            if(user){
+            if (user) {
                 res.json(user)
-            }else{
+            } else {
                 res.json('Some error is occurs during Finding Data')
             }
         })
 })
 
-router.get('/search/:id',async (req,res) => {
+router.get('/search/:id', async (req, res) => {
     await user.findById(req.params.id)
         .then((user) => {
-            if(user){
+            if (user) {
                 res.json(user).send('user is found')
-            }else{
+            } else {
                 res.json('User Is Not Found')
             }
         })
 })
 
-router.delete('/del/:id',async (req,res) => {
+router.delete('/del/:id', async (req, res) => {
     await user.findByIdAndDelete(req.params.id)
         .then((user) => {
-            if(user){
+            if (user) {
                 res.json(user).send('user is deleted Successfully')
-            }else{
+            } else {
                 res.json('User Is not found')
             }
         })

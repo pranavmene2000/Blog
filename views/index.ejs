@@ -43,7 +43,7 @@
       </div>
         <!-- <img class="card-img-top" src="<%= typeof file != 'undefined' ? file : '' %>" style="padding: 0 0 10px 0;width: 50%;height: 400px;" alt="Card image cap"> -->
         <h5 class="display-6" style="font-family: 'Roboto', arial, sans-serif;">
-          <%=data.body.substring(0,120)%>.....
+          <%=data.body.substr(0,200)%>....
         </h5>
         <p class="lead"><%=data.date.toDateString()%></p>
         <div class="button text-white ">

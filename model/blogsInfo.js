@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 
 const Mongoosemodel = mongoose.Schema({
     title : {
-        require:true,
         type : String
     },
     name : {
-        require :true,
         type : String
     },
     body : {
