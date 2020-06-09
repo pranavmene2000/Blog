@@ -47,7 +47,8 @@
       z-index: 10;
       outline: none;
     }
-    .darkmode-toggle:onfocus{
+
+    .darkmode-toggle:onfocus {
       outline: none;
     }
 
@@ -60,12 +61,13 @@
           rgba(0, 0, 0, 0)) 1;
 
     }
-    .darkmode--activated #arrow{
+
+    .darkmode--activated #arrow {
       background-color: aliceblue;
       color: black;
     }
 
-    .darkmode--activated #arrow:hover i{
+    .darkmode--activated #arrow:hover i {
       color: black;
     }
 
@@ -130,7 +132,7 @@
     darkmode.showWidget();
 
     var arrowTop = document.getElementById("arrow");
-    window.onscroll = function(){
+    window.onscroll = function () {
       displayOnScroll()
     }
     // console.log(window.innerWidth + " * " + window.innerHeight)
@@ -145,6 +147,18 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0
     }
+
+
+
+    //random color generator
+    // var profile = document.body.getElementById("profile")
+    // var x = Math.floor(Math.random() * 256);
+    // var y = Math.floor(Math.random() * 256);
+    // var z = Math.floor(Math.random() * 256);
+    // var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+    // console.log(bgColor);
+
+    // profile.style.background = bgColor;
   </script>
 </body>
 
