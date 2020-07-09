@@ -7,7 +7,6 @@ const expressLayout = require("express-ejs-layouts");
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-
 // Passport Config
 require('./config/passport')(passport);
 
@@ -71,7 +70,8 @@ app.use(
   session({
     secret: 'secret',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    expires : 36000
   })
 );
 // Passport middleware

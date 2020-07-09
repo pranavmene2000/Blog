@@ -70,12 +70,14 @@ router.get('/view/:para', ensureAuthenticated, async (req, res) => {
     try {
         const PA = await sam.findById(req.params.para);
         res.render('viewpost', { data: PA })
+        console.log(PA);
+
     } catch (err) {
         res.json({ message: err });
     }
 })
 
-router.get('/delete/:parID', async (req, res) => {
+router.get('/delete/:parID', ensureAuthenticated, async (req, res) => {
     try {
         const ABC = await sam.findByIdAndRemove(req.params.parID);
         res.redirect('/')
@@ -91,7 +93,7 @@ router.get('/delete/:parID', async (req, res) => {
 //     res.render('edit', { post: post })
 // })
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id',ensureAuthenticated, async (req, res) => {
     await sam.findById(req.params.id, function (err, result) {
         if (err) {
             console.log({ Error: err })

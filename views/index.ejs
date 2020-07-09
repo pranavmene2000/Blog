@@ -37,10 +37,12 @@
           <%=data.title%>
         </h1>
         <div style="display: flex;justify-content: left;align-items: center;">
-          <div id="profile" style="isolation: isolate;background: orange;color: black;font-weight: 600;border-radius: 50%;padding: 7px 9px;margin:0 5px 10px 0">
-              <%=data.name.match(/\b(\w)/g).join('')%></div>
+          <div id="profile"
+            style="isolation: isolate;background: orange;color: black;font-weight: 600;border-radius: 50%;padding: 7px 9px;margin:0 5px 10px 0">
+            <%=data.name.match(/\b(\w)/g).join('')%>
+          </div>
           <p class="lead"><%=data.name%></p>
-      </div>
+        </div>
         <!-- <img class="card-img-top" src="<%= typeof file != 'undefined' ? file : '' %>" style="padding: 0 0 10px 0;width: 50%;height: 400px;" alt="Card image cap"> -->
         <h5 class="display-6" style="font-family: 'Roboto', arial, sans-serif;">
           <%=data.body.substr(0,200)%>....
